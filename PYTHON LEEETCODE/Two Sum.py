@@ -10,6 +10,8 @@
 # Output: [0,1]
 # Output: Because nums[0] + nums[1] == 9, we return [0, 1].
 
+# visit :  https://leetcode.com/problems/two-sum/
+
 
 
 class Solution(object):
@@ -34,3 +36,18 @@ class Solution(object):
         i+=1
             
         return sollist    
+    
+    
+ # or sol2
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        dictx = {}
+        len_of_nums = len(nums)
+        i = 0
+        while i < len_of_nums:
+            j = target - nums[i]
+            if j in dictx:
+                return(dictx[j],i)
+            dictx[nums[i]]=i
+            i+=1
