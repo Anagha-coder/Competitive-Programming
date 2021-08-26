@@ -12,15 +12,12 @@ class Solution(object):
         """
         if len(s)==0:
             return 0
-        map ={} # created an empty dict
-        max_length = 0
-        start = 0
-        
-        for i in range(len(s)):
-            if s[i] in map and start >= map[s[i]]:
-                start= map[s[i]] + 1
+        map = {}
+        start = max_length = 0
+        for i,c in enumerate(s):
+            if c in map and start <= map[c]:
+                start = map[c]+1
             else:
-                max_length = max(max_length, i- start + 1)
-                map[s[i]] = i
-        return max_length        
-        
+                max_length = max(max_length,i-start+1)
+            map[c] = i
+        return max_length
